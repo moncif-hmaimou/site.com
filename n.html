@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>**** Ma page web ****</title>
+	<style>
+	*{
+		font-family: 'Montserrat', sans-serif;
+	}
+	body{
+		background-color : #131313;
+		
+	}
+	h3{
+		color : white;
+	}
+	
+	div{
+			position:absolute;
+			top:50%;
+			left:50%;
+			transform:translate(-50%,-50%);
+		}
+	#para{
+  position: fixed;
+  bottom: 80px;
+  left: 40%;
+  color: #ddd;
+}
+	</style>
+</head>
+<body>
+<div>
+<h3>Chagement d'image par survol et non survol</h3><br>
+<img src="images/ampoule1.jpg" 
+	onMouseOver="document.images[0].src='images/ampoule2.jpg'"
+	onMouseOut="document.images[0].src='images/ampoule1.jpg'  "/>
+</div>
+<p id="para">Vous etes ici depuis 00h : 00m : 00s</p>
+<script>
+var s=0,h=0,m=0;
+        var tmp;
+        function temps(){
+            var pp=document.getElementById("para");
+            s=parseInt(s)+1;
+            if(s>59){s=0;m=parseInt(m)+1;}
+            if(m>59){m=0;h=parseInt(h)+1;}
+            if(s<10){s="0"+s;}
+            if(m<10){m="0"+parseInt(m);}
+            if(h<10){h="0"+parseInt(h);}
+            pp.innerHTML="Vous etes ici depuis "+h+"h : "+m+"m : "+s+"s";
+            tmp=setTimeout(temps,1000);
+        }
+        temps();
+		</script>
+
+</body>
+</html>
